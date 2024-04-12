@@ -6,23 +6,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-/**
- * Spring Data JPA One to One with Shared Primary Key
- */
 @Entity
-@Table(name = "products")
+@Table(name = "item_details")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Product {
+public class ItemDetail {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	private String name;
-	private float price;
-
-	@OneToOne(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@PrimaryKeyJoinColumn
-	private ProductDetail productDetail;
+	private String description;
+	private float weight;
+	private float length;
+	private float height;
+	private float width;
 }
